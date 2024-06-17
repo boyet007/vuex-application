@@ -1,1 +1,3 @@
-export const meals = ['salmon'];
+export default {
+    searchedMeals: []
+}

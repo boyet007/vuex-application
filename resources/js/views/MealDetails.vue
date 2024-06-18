@@ -15,13 +15,17 @@
             </div>
         </div>
 
+        <div class="my-3">
+            {{ meal.strInstructions }}
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2">
             <div>
                 <h2 class="text-2xl font-semibold mb-3">Ingredients</h2>
                 <ul>
                     <template v-for="(el, ind) of new Array(20)">
-                        <li v-if="meal[`strIngredient${ ind + 1 }`]">
-                            {{ meal[`strIngredient${ ind + 1 }`] }}
+                        <li v-if="meal[`strIngredient${ind + 1}`]">
+                            {{ ind + 1 }}. {{ meal[`strIngredient${ind + 1}`] }}
                         </li>
                     </template>
                 </ul>
@@ -30,16 +34,16 @@
                 <h2 class="text-2xl font-semibold mb-3">Measures</h2>
                 <ul>
                     <template v-for="(el, ind) of new Array(20)">
-                        <li v-if="meal[`strMeasure${ ind + 1 }`]">
-                            {{ meal[`strMeasure${ ind + 1 }`] }}
+                        <li v-if="meal[`strMeasure${ind + 1}`]">
+                            {{ ind + 1 }}. {{ meal[`strMeasure${ind + 1}`] }}
                         </li>
                     </template>
                 </ul>
             </div>
         </div>
         <div class="mt-4">
-            <YoutubeButton target="_blank" :href="meal.strYoutube">Go To Youtube</YoutubeButton>
-            <a :href="meal.strSource" target="_blank" class="px-3 py-2 rounded text-white 
+            <YoutubeButton target="_blank" :href="meal.strYoutube">Youtube</YoutubeButton>
+            <a :href="meal.strSource" target="_blank" class="px-3 py-2 rounded 
                text-indigo-500">View Original Source</a>
         </div>
     </div>

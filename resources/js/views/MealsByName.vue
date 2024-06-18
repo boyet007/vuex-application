@@ -1,6 +1,6 @@
 <template>
     <div class="p-8">
-        <input type="text" @change="searchMeals" v-model="keyword" class="rounded border-2 border-gray-200 w-full"
+        <input type="text" @change="searchMeals" v-model="keyword" class="text-black rounded border-2 border-gray-200 w-full"
             placeholder="Search for Meals">
     </div>
 
@@ -11,22 +11,18 @@
                 <h3 class="p-3 font-semibold">{{ meal.strMeal }}</h3>
                 <p class="p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus magni officiis dolore saepe, adipisci ipsum corrupti ipsam eveniet similique debitis.</p>
                 <div class="flex items-center justify-between">
-                    <a :href="meal.strYoutube" target="_blank" class="px-3 text-white py-2 rounded border-2 bg-red-500 hover:bg-red-600">Youtube</a>
-                    <router-link to="/" class="px-3 py-2 rounded border-2 text-white bg-purple-500 border-purple-600">View</router-link>
+                    <YoutubeButton :href="meal.strYoutube">Youtube</YoutubeButton>
+                    <router-link :to="{ name: 'mealDetails', params: {id: meal.idMeal}}" class="px-3 py-2 rounded border-2 text-white bg-purple-500 border-purple-600">View</router-link>
                 </div>
             </div>
         </div>
-
     </div>
-
-    <!-- <pre>{{ meals }}</pre> -->
-
 </template>
 
 <script setup>
 import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
-
+import YoutubeButton from '../components/YoutubeButton.vue';
 import store from '../store';
 
 const router = useRouter();
